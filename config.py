@@ -49,8 +49,8 @@ LOOKBACK_PERIOD = 50 # bars for some indicators
 # TARGET_HORIZON = 5   # DEPRECATED
 TARGET_HORIZONS = [1, 4]   # Predict 1h and 4h
 TARGET_THRESHOLDS = {
-    1: 0.002, # 0.2% for 1h
-    4: 0.005  # 0.5% for 4h
+    1: 0.001, # 0.1% for 1h
+    4: 0.003  # 0.3% for 4h
 }
 
 # Data Download Config

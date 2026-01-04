@@ -59,6 +59,11 @@ class Backtester:
         
         # 4. Loop Bar-by-Bar
         for i in range(len(df)):
+            # Check for Blow Up
+            if self.broker.get_account_balance() <= 0:
+                print(f"!!! ACCOUNT BLOWN UP at {df.index[i]} !!! Balance: ${self.broker.get_account_balance():.2f}")
+                break
+
             if i < config.LOOKBACK_PERIOD: continue
             
             row = df.iloc[i]

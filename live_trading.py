@@ -16,7 +16,7 @@ class LiveTrader:
         self.fe = FeatureEngineer()
         self.model = SymbolModel(symbol)
         self.broker = PaperBroker(initial_balance=config.INITIAL_BALANCE)
-        self.journal = TradeJournal()
+        self.journal = TradeJournal(symbol)
         
         self.model.load()
         if not self.model.models:

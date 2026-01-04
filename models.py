@@ -12,7 +12,7 @@ class SymbolModel:
     Wrapper for symbol-specific ML models (Multi-Horizon).
     """
     
-    def __init__(self, symbol: str, model_type: str = "gb"):
+    def __init__(self, symbol: str, model_type: str = "rf"):
         self.symbol = symbol
         self.model_type = model_type
         # Dictionary to hold models for each horizon: {1: model_obj, 4: model_obj}
@@ -20,7 +20,7 @@ class SymbolModel:
         
     def _get_base_model(self):
         if self.model_type == "rf":
-            return RandomForestClassifier(n_estimators=100, random_state=42)
+            return RandomForestClassifier(n_estimators=200, class_weight='balanced', random_state=42)
         elif self.model_type == "gb":
             return GradientBoostingClassifier(n_estimators=100, random_state=42)
         else:
